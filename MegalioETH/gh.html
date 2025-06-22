@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collapsible Section</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #121212;
+      color: white;
+      padding: 2rem;
+    }
+
+    .toggle-mint {
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #333;
+      border-radius: 5px;
+    }
+
+    .mint-card-container {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.5s ease, max-height 0.5s ease, padding-top 0.5s ease;
+      padding-top: 0;
+      background: #222;
+      border-radius: 8px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .mint-card-container.active {
+      opacity: 1;
+      max-height: 1000px; /* enough room for the content */
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-mint">Toggle Mint Details</div>
+
+  <div class="mint-card-container" id="mintCard">
+    <p>This is your mint details section. It now expands and collapses properly!</p>
+  </div>
+
+  <script>
+    const toggleMint = document.querySelector(".toggle-mint");
+    const mintCard = document.getElementById("mintCard");
+
+    toggleMint.addEventListener("click", () => {
+      mintCard.classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>
